@@ -1,0 +1,28 @@
+begin
+var n:integer;
+var nsign:integer;
+var mysign:integer;
+var ismon:boolean;
+var a: array of integer;
+begin
+  write('Введите размер массива ');
+  readln(n);
+  SetLength(a, n);
+  writeln('Введите элементы массива: ');
+  for var i:= 0 to n-1 do readln(a[i]);
+  mysign := sign(a[1]-a[0]);
+  if mysign >= 0 then mysign := 1;
+  ismon := true;
+  for var i:= 2 to n-1 do
+ 
+  begin
+    nsign := sign (a[i] - a[i-1]);
+    if nsign >= 0 then nsign := 1;
+    if nsign <> mysign then ismon := false;
+  end;
+  if ismon then
+    print('Массив монотонный')
+  else
+    print('Массив не монотонный');
+end;
+end.
